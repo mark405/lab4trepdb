@@ -1,0 +1,37 @@
+db.getCollection("items").find().pretty();
+
+db.getCollection("items").countDocuments({ "category": "Phone" });
+
+db.getCollection("items").distinct("category").length;
+
+db.getCollection("items").distinct("producer");
+
+db.getCollection("items").find({
+  $and: [
+    { "category": "Phone" },
+    { "price": { $gte: 500, $lte: 800 } }
+  ]
+}).pretty();
+
+db.getCollection("items").find({
+  $or: [
+    { "model": "iPhone 6" },
+    { "model": "Samsung Galaxy S21" }
+  ]
+}).pretty();
+
+db.getCollection("items").find({
+  "producer": { $in: ["Apple", "Samsung"] }
+}).pretty();
+
+db.getCollection("items").updateMany(
+  { "category": "Phone" },
+  { $set: { "warranty": "1 year" }, $inc: { "price": 50 } }
+);
+
+db.getCollection("items").find({ "warranty": { $exists: true } }).pretty();
+
+db.getCollection("items").updateMany(
+  { "warranty": { $exists: true } },
+  { $inc: { "price": 100 } }
+);

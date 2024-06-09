@@ -1,0 +1,69 @@
+db.getCollection("items").insertMany([
+  {
+    "category": "Phone",
+    "model": "iPhone 13",
+    "producer": "Apple",
+    "price": 999,
+    "screen_size": "6.1 inch",
+    "storage": "128GB"
+  },
+  {
+    "category": "Phone",
+    "model": "Samsung Galaxy S21",
+    "producer": "Samsung",
+    "price": 799,
+    "screen_size": "6.2 inch",
+    "storage": "128GB"
+  },
+  {
+    "category": "TV",
+    "model": "LG OLED55",
+    "producer": "LG",
+    "price": 1299,
+    "screen_size": "55 inch",
+    "resolution": "4K"
+  },
+  {
+    "category": "Smart Watch",
+    "model": "Apple Watch Series 7",
+    "producer": "Apple",
+    "price": 399,
+    "screen_size": "1.9 inch",
+    "features": ["GPS", "Heart Rate Monitor"]
+  },
+  {
+    "category": "Laptop",
+    "model": "MacBook Air",
+    "producer": "Apple",
+    "price": 999,
+    "screen_size": "13.3 inch",
+    "storage": "256GB",
+    "ram": "8GB"
+  },
+  {
+    "category": "Tablet",
+    "model": "iPad Pro",
+    "producer": "Apple",
+    "price": 1099,
+    "screen_size": "12.9 inch",
+    "storage": "256GB",
+    "features": ["Face ID", "LiDAR Scanner"]
+  },
+  {
+    "category": "TV",
+    "model": "Samsung QLED",
+    "producer": "Samsung",
+    "price": 1199,
+    "screen_size": "65 inch",
+    "resolution": "4K",
+    "features": ["Smart TV", "HDR"]
+  },
+  {
+    "category": "Camera",
+    "model": "Canon EOS R6",
+    "producer": "Canon",
+    "price": 2499,
+    "megapixels": 20.1,
+    "features": ["4K Video", "Image Stabilization"]
+  }
+]);

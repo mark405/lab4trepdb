@@ -1,0 +1,50 @@
+db.orders.insertMany([
+  {
+    "order_number": 202301,
+    "date": ISODate("2023-06-01"),
+    "total_sum": 1998,
+    "customer": {
+      "name": "Ivan",
+      "surname": "Petrov",
+      "phones": [123456789],
+      "address": "Main St, Kyiv, UA"
+    },
+    "payment": {
+      "card_owner": "Ivan Petrov",
+      "cardId": 98765432
+    },
+    "items_id": [ObjectId("6665dcf63fb714cba9d2c1b0"), ObjectId("6665dcf63fb714cba9d2c1b1")]
+  },
+  {
+    "order_number": 202302,
+    "date": ISODate("2023-06-02"),
+    "total_sum": 2499,
+    "customer": {
+      "name": "Oksana",
+      "surname": "Ivanova",
+      "phones": [987654321],
+      "address": "Freedom Ave, Lviv, UA"
+    },
+    "payment": {
+      "card_owner": "Oksana Ivanova",
+      "cardId": 87654321
+    },
+    "items_id": [ObjectId("6665dcf63fb714cba9d2c1b0"), ObjectId("6665dcf63fb714cba9d2c1b3")]
+  },
+  {
+    "order_number": 202303,
+    "date": ISODate("2023-06-03"),
+    "total_sum": 1599,
+    "customer": {
+      "name": "Petro",
+      "surname": "Sidorov",
+      "phones": [1122334455],
+      "address": "Central Park, Odessa, UA"
+    },
+    "payment": {
+      "card_owner": "Petro Sidorov",
+      "cardId": 11223344
+    },
+    "items_id": [ObjectId("6665dcf63fb714cba9d2c1b6")]
+  }
+]);

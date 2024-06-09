@@ -1,0 +1,55 @@
+db.orders.find().pretty();
+
+db.orders.find({ "total_sum": { $gt: 2000 } }).pretty();
+
+db.orders.find({ "customer.name": "Ivan", "customer.surname": "Petrov" }).pretty();
+
+db.orders.find({ "items_id": ObjectId("6665dcf63fb714cba9d2c1b0") }).pretty();
+
+db.orders.updateMany(
+  { "items_id": ObjectId("6665dcf63fb714cba9d2c1b0") },
+  {
+    $push: { "items_id": ObjectId("6665dcf63fb714cba9d2c1b1") },
+    $inc: { "total_sum": 100 }
+  }
+);
+
+db.orders.aggregate([
+  { $match: { "order_number": 202301 } },
+  { $project: { "items_count": { $size: "$items_id" } } }
+]);
+
+
+db.orders.find(
+  { "total_sum": { $gt: 2000 } },
+  { "customer": 1, "payment.cardId": 1, "_id": 0 }
+).pretty();
+
+
+db.orders.updateMany(
+  { "date": { $gte: ISODate("2023-06-01"), $lte: ISODate("2023-06-02") } },
+  { $pull: { "items_id": ObjectId("6665dcf63fb714cba9d2c1b0") } }
+);
+
+db.orders.updateMany(
+  { "customer.name": "Ivan" },
+  { $set: { "customer.name": "John" } }
+);
+db.orders.updateMany(
+  { "customer.surname": "Petrov" },
+  { $set: { "customer.surname": "Doe" } }
+);
+
+db.orders.find(
+  { "customer.name": "John", "customer.surname": "Doe" },
+  { "customer": 1, "items_id": 1, "_id": 0 }
+).pretty();
+
+
+
+
+
+
+
+
+
