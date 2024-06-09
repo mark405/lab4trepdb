@@ -1,0 +1,33 @@
+db.createCollection("reviews", {
+  capped: true,
+  size: 1048576, // 1 MB
+  max: 5
+});
+
+
+db.reviews.insertMany([
+  {
+    "review_id": 1,
+    "customer_name": "John Doe",
+    "product_name": "iPhone 12",
+    "rating": 5,
+    "comment": "Great phone, I love it!",
+    "date": ISODate("2024-06-10T08:00:00Z")
+  },
+  {
+    "review_id": 2,
+    "customer_name": "Alice Smith",
+    "product_name": "Samsung Galaxy S21",
+    "rating": 4,
+    "comment": "Good phone, but battery life could be better.",
+    "date": ISODate("2024-06-09T10:30:00Z")
+  },
+  {
+    "review_id": 3,
+    "customer_name": "Bob Johnson",
+    "product_name": "Sony PlayStation 5",
+    "rating": 5,
+    "comment": "Amazing console, graphics are stunning!",
+    "date": ISODate("2024-06-08T15:45:00Z")
+  }
+]);
